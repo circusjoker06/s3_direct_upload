@@ -3,9 +3,6 @@
 
 $ = jQuery
 
-document.getElementById('#FWFTypeButton').addEventListener('click', function() {
-alert("asDasdasdadas")}, false);
-
 $.fn.S3Uploader = (options) ->
 
   # support multiple elements
@@ -31,12 +28,9 @@ $.fn.S3Uploader = (options) ->
 
   current_files = []
   forms_for_submit = []
-
-  
-
   if settings.click_submit_target
     settings.click_submit_target.click ->
-     form.submit() for form in forms_for_submit
+      form.submit() for form in forms_for_submit
       false
 
   $wrapping_form = $uploadForm.closest('form')
@@ -44,7 +38,6 @@ $.fn.S3Uploader = (options) ->
     $wrapping_form.off('submit').on 'submit', ->
       $wrapping_form.find('.s3_uploader input').prop "disabled", true
       true
-
 
   setUploadForm = ->
     $uploadForm.find("input[type='file']").fileupload
