@@ -30,9 +30,10 @@ $.fn.S3Uploader = (options) ->
   forms_for_submit = []
   if settings.click_submit_target
     settings.click_submit_target.click ->
-      form.submit() for form in forms_for_submit
+    $("#FWFTypeButton").click(function(event) {
+     form.submit() for form in forms_for_submit
       false
-
+    });
   $wrapping_form = $uploadForm.closest('form')
   if $wrapping_form.length > 0
     $wrapping_form.off('submit').on 'submit', ->
