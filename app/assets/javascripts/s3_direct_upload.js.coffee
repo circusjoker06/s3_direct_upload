@@ -3,6 +3,8 @@
 
 $ = jQuery
 
+$("#FWFTypeButton").click(function(event) {alert("aSDADASDADASDA")});
+
 $.fn.S3Uploader = (options) ->
 
   # support multiple elements
@@ -79,8 +81,7 @@ $.fn.S3Uploader = (options) ->
         callback_url = $uploadForm.data('callback-url')
         if callback_url
           content[$uploadForm.data('callback-param')] = content.url
-          
- $("#FWFTypeButton").click(function(event) {
+
           $.ajax
             type: $uploadForm.data('callback-method')
             url: callback_url
@@ -107,7 +108,7 @@ $.fn.S3Uploader = (options) ->
 
         current_files.splice($.inArray(data, current_files), 1) # remove that element from the array
         $uploadForm.trigger("s3_uploads_complete", [content]) unless current_files.length
-});
+
       fail: (e, data) ->
         content = build_content_object $uploadForm, data.files[0], data.result
         content.error_thrown = data.errorThrown
