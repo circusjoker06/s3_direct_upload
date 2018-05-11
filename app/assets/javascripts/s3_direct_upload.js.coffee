@@ -3,7 +3,8 @@
 
 $ = jQuery
 
-$("#FWFTypeButton").click(function(event) {alert("aSDADASDADASDA")});
+document.getElementById('#FWFTypeButton').addEventListener('click', function() {
+alert("asDasdasdadas")}, false);
 
 $.fn.S3Uploader = (options) ->
 
