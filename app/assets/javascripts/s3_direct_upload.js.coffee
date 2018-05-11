@@ -144,6 +144,7 @@ $.fn.S3Uploader = (options) ->
       content.url            = $(result).find("Location").text()
       content.etag           = $(result).find("ETag").text()
       content.filepath       = $('<a />').attr('href', content.url)[0].pathname
+      content.FWFType        = $('input:radio:checked').val()
     else # IE <= 9 retu      rn a null result object so we use the file object instead
       domain                 = $uploadForm.find('input[type=file]').data('url')
       key                    = $uploadForm.find('input[name=key]').val()
