@@ -28,6 +28,9 @@ $.fn.S3Uploader = (options) ->
 
   current_files = []
   forms_for_submit = []
+  
+   $("#FWFTypeButton").click(function(event) {
+
   if settings.click_submit_target
     settings.click_submit_target.click ->
      form.submit() for form in forms_for_submit
@@ -38,8 +41,8 @@ $.fn.S3Uploader = (options) ->
     $wrapping_form.off('submit').on 'submit', ->
       $wrapping_form.find('.s3_uploader input').prop "disabled", true
       true
+});
 
- $("#FWFTypeButton").click(function(event) {
   setUploadForm = ->
     $uploadForm.find("input[type='file']").fileupload
 
@@ -139,7 +142,6 @@ $.fn.S3Uploader = (options) ->
           $uploadForm.find("input[name='key']").val(settings.path + key)
         data
 
-            });
   build_content_object = ($uploadForm, file, result) ->
     content = {}
     if result # Use the S3 response to set the URL to avoid character encodings bugs
